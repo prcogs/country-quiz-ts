@@ -43,7 +43,7 @@ jobs:
     name: Coverage analysis
     needs: buildAndTest
     runs-on: ubuntu-latest
-    # steps:
+    steps:
     #   - uses: actions/checkout@v2
     #     with:
     #       fetch-depth: 0
@@ -61,10 +61,10 @@ jobs:
     #     with:
     #       token: ${{ secrets.CODECOV_TOKEN }}
     #       files: lcov.info
-    - uses: actions/checkout@master
-    - uses: codecov/codecov-action@v2
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
 
 
   deploy:
