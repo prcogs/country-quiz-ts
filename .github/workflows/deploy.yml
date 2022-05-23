@@ -43,24 +43,28 @@ jobs:
     name: Coverage analysis
     needs: buildAndTest
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+    # steps:
+    #   - uses: actions/checkout@v2
+    #     with:
+    #       fetch-depth: 0
+    #       token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Donwload coverage artifacts
-      - uses: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: ./dist
+    #   # Donwload coverage artifacts
+    #   - uses: actions/download-artifact@v2
+    #     with:
+    #       name: production-files
+    #       path: ./dist
 
-      # Update coverage file to codecov
-      - name: CODECOV
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: lcov.info
+    #   # Update coverage file to codecov
+    #   - name: CODECOV
+    #     uses: codecov/codecov-action@v1
+    #     with:
+    #       token: ${{ secrets.CODECOV_TOKEN }}
+    #       files: lcov.info
+    - uses: actions/checkout@master
+    - uses: codecov/codecov-action@v2
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
 
 
   deploy:
