@@ -1,4 +1,4 @@
-name: Deploy
+name: Test & Deploy
 
 on:
   push:
@@ -64,7 +64,7 @@ jobs:
 
   deploy:
     name: Deploy
-    needs: build
+    needs: buildAndTest
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
 
