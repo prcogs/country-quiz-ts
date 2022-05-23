@@ -28,5 +28,6 @@ export default defineConfig(({ command, mode }) => {
          eslint(),
          tsconfigPaths(),
       ],
+      base: '/coutry-quiz-ts/',
    }
 })
