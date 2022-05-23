@@ -1,1 +1,1 @@
-# country-quiz-ts
+# Country quiz
