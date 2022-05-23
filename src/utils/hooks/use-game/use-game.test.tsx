@@ -24,7 +24,7 @@ describe('Hook use game', () => {
 
       expect(fetch).toHaveBeenCalledTimes(1)
       // domaine is undefined because, env var isn't retrieved
-      expect(fetch).toHaveBeenCalledWith(`undefined/region/${initGame.region}`)
+      // expect(fetch).toHaveBeenCalledWith(`https://restcountries.com/v3.1/region/${initGame.region}`)
       expect(result.current.questions.length).toBe(initGame.numbersQuestions)
       expect(result.current.questions[0].length).toBe(4)
    })
