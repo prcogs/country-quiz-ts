@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest --coverage"
   },
   "dependencies": {
     "react": "^18.0.0",
