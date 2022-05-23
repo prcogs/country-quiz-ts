@@ -1,0 +1,85 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:react/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "moduleDirectory": ["node_modules", "src/", "src/utils/", "@utils"],
+            "extensions": [".js", ".jsx", ".ts", ".tsx"]
+          }
+        }
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "import"
+    ],
+    "rules": {
+        /* ----------- By @Prcogs ----------- */
+
+        /*  Config React  */
+        "react/jsx-indent": ["error", 3],
+        "react/jsx-indent-props": ["error", 3],
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": "off",
+        "react/no-danger": "off",
+        "react/function-component-definition": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+        "react/react-in-jsx-scope": "off",
+        "react/display-name": "off",
+
+        /*  Config Eslint  */
+        "arrow-body-style": "off",
+        "arrow-parens": ["error", "as-needed"],
+        "import/prefer-default-export": "off",
+        "indent": ["error", 3, { "SwitchCase" : 1 }],
+        "max-len": [
+            "error",
+            { "ignoreComments": true, "ignoreStrings": true, "code": 130 }
+        ],
+        "no-multiple-empty-lines": ["error", { "max": 2 }],
+        "no-unused-vars": "warn",
+        "object-curly-newline": [
+            "error",
+            { "ObjectPattern": { "multiline": true } }
+        ],
+        "semi": "off",
+
+        /*  Config Import  */
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+        ],
+        "import/no-extraneous-dependencies": "off",
+
+
+        /*  Config Typescript  */
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-non-null-assertion": "warn",
+        "@typescript-eslint/no-empty-function": "off"
+    }
+}

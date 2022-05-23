@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`home should render correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-bczRLJ dgFfCE"
+        data-testid="home"
+      >
+        <h2
+          class="sc-hKMtZM ecwSBU"
+        >
+          Hi, do you want play ?
+        </h2>
+        <div
+          class="sc-dkzDqf TkbfV"
+        >
+          <select
+            class="sc-gsnTZi HINSD"
+            id="nb"
+            name="nb"
+          >
+            <option
+              value="1"
+            >
+              1
+            </option>
+            <option
+              value="2"
+            >
+              2
+            </option>
+            <option
+              value="3"
+            >
+              3
+            </option>
+            <option
+              value="4"
+            >
+              4
+            </option>
+            <option
+              value="5"
+            >
+              5
+            </option>
+            <option
+              value="6"
+            >
+              6
+            </option>
+            <option
+              value="7"
+            >
+              7
+            </option>
+            <option
+              value="8"
+            >
+              8
+            </option>
+            <option
+              value="9"
+            >
+              9
+            </option>
+            <option
+              value="10"
+            >
+              10
+            </option>
+          </select>
+          <select
+            class="sc-gsnTZi HINSD"
+            id="region"
+            name="region"
+          >
+            <option
+              value="Africa"
+            >
+              Africa
+            </option>
+            <option
+              value="Americas"
+            >
+              Americas
+            </option>
+            <option
+              value="Asia"
+            >
+              Asia
+            </option>
+            <option
+              value="Europe"
+            >
+              Europe
+            </option>
+          </select>
+        </div>
+        <button
+          class="sc-eCYdqJ cpGAJR"
+          data-testid="btn"
+          type="button"
+        >
+          Play
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-bczRLJ dgFfCE"
+      data-testid="home"
+    >
+      <h2
+        class="sc-hKMtZM ecwSBU"
+      >
+        Hi, do you want play ?
+      </h2>
+      <div
+        class="sc-dkzDqf TkbfV"
+      >
+        <select
+          class="sc-gsnTZi HINSD"
+          id="nb"
+          name="nb"
+        >
+          <option
+            value="1"
+          >
+            1
+          </option>
+          <option
+            value="2"
+          >
+            2
+          </option>
+          <option
+            value="3"
+          >
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+          <option
+            value="7"
+          >
+            7
+          </option>
+          <option
+            value="8"
+          >
+            8
+          </option>
+          <option
+            value="9"
+          >
+            9
+          </option>
+          <option
+            value="10"
+          >
+            10
+          </option>
+        </select>
+        <select
+          class="sc-gsnTZi HINSD"
+          id="region"
+          name="region"
+        >
+          <option
+            value="Africa"
+          >
+            Africa
+          </option>
+          <option
+            value="Americas"
+          >
+            Americas
+          </option>
+          <option
+            value="Asia"
+          >
+            Asia
+          </option>
+          <option
+            value="Europe"
+          >
+            Europe
+          </option>
+        </select>
+      </div>
+      <button
+        class="sc-eCYdqJ cpGAJR"
+        data-testid="btn"
+        type="button"
+      >
+        Play
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
