@@ -36,6 +36,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    env:
+      ## Sets environment variable
+      VITE_COUNTRY_API: https://restcountries.com/v3.1
 
     steps:
       - name: Download artifact
