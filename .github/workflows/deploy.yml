@@ -38,6 +38,30 @@ jobs:
           name: production-files
           path: ./dist
 
+
+  coverage:
+    name: Coverage analysis
+    needs: buildAndTest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ env.GITHUB_TOKEN }}
+
+      # Donwload coverage artifacts
+      - uses: actions/download-artifact@v2
+        with:
+          name: coverage
+
+      # Update coverage file to codecov
+      - name: CODECOV
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: lcov.info
+
+
   deploy:
     name: Deploy
     needs: build
