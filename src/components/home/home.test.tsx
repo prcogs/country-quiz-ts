@@ -4,17 +4,13 @@ import { useGame } from 'utils/hooks/use-game'
 import { Home } from 'components/home'
 
 
-jest.mock('utils/hooks/use-game', () => {
-   return {
-      useGame: jest.fn(),
-   }
-})
+jest.mock('utils/hooks/use-game', () => ({
+   useGame: jest.fn(),
+}))
 
-const fct = (boolean: boolean) => () => {
-   return {
-      init: (a: number, b: string | undefined) => Promise.resolve(boolean),
-   }
-}
+const fct = (boolean: boolean) => () => ({
+   init: jest.fn((a: number, b: string | undefined) => Promise.resolve(boolean)),
+})
 
 describe('home', () => {
    // beforeAll(() => {
@@ -61,6 +57,7 @@ describe('home', () => {
       const { getByTestId, queryByTestId } = render(<Home />)
 
       const btn = getByTestId('btn')
+
       await waitFor(() => fireEvent.click(btn))
       expect((btn as HTMLButtonElement).disabled).toBe(true)
 

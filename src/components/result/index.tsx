@@ -12,11 +12,11 @@ export const Result = () => {
 
          <S.Para>
             {'You got '}
-            <span>{dataGame.numberGoodResp}</span>
+            <span data-testid="result">{dataGame.numberGoodResp}</span>
             {` / ${dataGame.numberQuestions} correct answer`}
          </S.Para>
 
-         <S.Button type="button" onClick={() => retryGame()}>Try again</S.Button>
+         <S.Button type="button" onClick={() => retryGame()} data-testid="btn">Try again</S.Button>
       </S.StyledResult>
    )
 }

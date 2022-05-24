@@ -4152,8 +4152,99 @@ const dataParsed = [
    },
 ]
 
+const questions = [
+   [
+      {
+         capital: 'Moroni',
+         flags: 'https://flagcdn.com/km.svg',
+         name: 'Comoros',
+      },
+      {
+         capital: 'Lusaka',
+         flags: 'https://flagcdn.com/zm.svg',
+         name: 'Zambia',
+      },
+      {
+         capital: "N'Djamena",
+         flags: 'https://flagcdn.com/td.svg',
+         name: 'Chad',
+      },
+      {
+         capital: 'São Tomé',
+         flags: 'https://flagcdn.com/st.svg',
+         name: 'São Tomé and Príncipe',
+      },
+   ],
+   [
+      {
+         capital: 'Yaoundé',
+         flags: 'https://flagcdn.com/cm.svg',
+         name: 'Cameroon',
+      },
+      {
+         capital: 'Bamako',
+         flags: 'https://flagcdn.com/ml.svg',
+         name: 'Mali',
+      },
+      {
+         capital: 'Praia',
+         flags: 'https://flagcdn.com/cv.svg',
+         name: 'Cape Verde',
+      },
+      {
+         capital: 'Kampala',
+         flags: 'https://flagcdn.com/ug.svg',
+         name: 'Uganda',
+      },
+   ],
+   [
+      {
+         capital: 'Port Louis',
+         flags: 'https://flagcdn.com/mu.svg',
+         name: 'Mauritius',
+      },
+      {
+         capital: 'Mogadishu',
+         flags: 'https://flagcdn.com/so.svg',
+         name: 'Somalia',
+      },
+      {
+         capital: 'Dakar',
+         flags: 'https://flagcdn.com/sn.svg',
+         name: 'Senegal',
+      },
+      {
+         capital: 'Asmara',
+         flags: 'https://flagcdn.com/er.svg',
+         name: 'Eritrea',
+      },
+   ],
+   [
+      {
+         capital: 'Ouagadougou',
+         flags: 'https://flagcdn.com/bf.svg',
+         name: 'Burkina Faso',
+      },
+      {
+         capital: 'Gitega',
+         flags: 'https://flagcdn.com/bi.svg',
+         name: 'Burundi',
+      },
+      {
+         capital: 'Djibouti',
+         flags: 'https://flagcdn.com/dj.svg',
+         name: 'Djibouti',
+      },
+      {
+         capital: 'Porto-Novo',
+         flags: 'https://flagcdn.com/bj.svg',
+         name: 'Benin',
+      },
+   ],
+]
 
 export default {
    data,
    dataParsed,
+   questions,
 }

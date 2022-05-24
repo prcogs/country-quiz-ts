@@ -12,7 +12,7 @@ type Route = {
    changeRoute: () => void
 }
 
-const routesContext = createContext<Route>({
+export const routesContext = createContext<Route>({
    route: routes.HOME,
    changeRoute: () => {},
 });
