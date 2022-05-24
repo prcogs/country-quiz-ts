@@ -10,39 +10,41 @@ const type = {
 }
 
 const random = () => Math.floor(Math.random() * 4)
-const letters = ['A', 'B', 'C', 'D']
+const LETTERS = ['A', 'B', 'C', 'D']
 
 
 const Game = ({ data, isPlaying, handleAnswer, wichType }: Game) => {
    const [goodAnswer, setGoodAnswer] = useState(data[random()])
-   const [nameOfClick, setidxOfClick] = useState<string | null>(null)
+   const [response, setResponse] = useState<string | null>(null)
 
    const handleClick = (name: string) => {
-      handleAnswer(name === goodAnswer.name)
-      setidxOfClick(name)
+      if (isPlaying) {
+         handleAnswer(name === goodAnswer.name)
+         setResponse(name)
+      }
    }
-
-   useEffect(() => {
-      setGoodAnswer(data[random()])
-   }, [data])
 
    const getClassName = (name: string) => {
       if (!isPlaying) {
          if (name === goodAnswer.name) return 'success'
-         if (nameOfClick === name) return 'error'
+         if (name === response) return 'error'
          return 'none'
       }
 
       return ''
    }
 
+   useEffect(() => {
+      setGoodAnswer(data[random()])
+   }, [data])
+
 
    return (
-      <S.StyledGame>
+      <S.StyledGame data-testid="game">
          {wichType === type.CAPITAL
-            ? <S.Question>{`${goodAnswer.capital} is the capital of`}</S.Question>
+            ? <S.Question data-testid="type-captial">{`${goodAnswer.capital} is the capital of`}</S.Question>
             : (
-               <S.Question>
+               <S.Question data-testid="type-flag">
                   <S.Img src={goodAnswer.flags} alt="Flag" width={100} />
                   Wich country does this flag belong to
                </S.Question>
@@ -56,8 +58,9 @@ const Game = ({ data, isPlaying, handleAnswer, wichType }: Game) => {
                      disabled={!isPlaying}
                      onClick={() => handleClick(name)}
                      className={getClassName(name)}
+                     data-testid="answer"
                   >
-                     <span>{letters[idx]}</span>
+                     <span>{LETTERS[idx]}</span>
 
                      {name}
 
@@ -81,18 +84,14 @@ export const Games = () => {
    const [isPlaying, setIsPlaying] = useState(true)
    const { questions, dataGame, nextQuestion, oneMoreGoodAnswer } = useGame()
 
-   const handlePlaying = () => {
+   const handleAnswer = (resp: boolean) => {
+      if (resp) oneMoreGoodAnswer()
       setIsPlaying(prevState => !prevState)
    }
 
-   const handleAnswer = (resp: boolean) => {
-      if (resp) oneMoreGoodAnswer()
-      handlePlaying()
-   }
-
    const handleNext = () => {
-      handlePlaying()
       nextQuestion()
+      setIsPlaying(prevState => !prevState)
    }
 
    return (
@@ -106,7 +105,7 @@ export const Games = () => {
             wichType={dataGame.actualQuestion % 2 === 0 ? type.CAPITAL : type.FLAG}
          />
 
-         {!isPlaying && <S.Button type="button" onClick={() => handleNext()}>Next</S.Button>}
+         {!isPlaying && <S.Button type="button" onClick={() => handleNext()} data-testid="btnNext">Next</S.Button>}
       </S.StyledGames>
    )
 }
