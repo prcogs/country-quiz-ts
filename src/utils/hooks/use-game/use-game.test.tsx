@@ -1,7 +1,9 @@
 import { renderHook, act } from '@testing-library/react'
 import fetch from 'jest-fetch-mock'
 
-import { createQuestions, useProvideGame } from 'utils/hooks/use-game'
+import { useProvideGame } from 'utils/hooks/use-game'
+import { createQuestions } from 'utils/hooks/use-game/helpers/createQuestions'
+
 import { africa, initGame } from 'fixtures'
 
 
@@ -19,7 +21,7 @@ describe('Hook use game', () => {
       const { result } = renderHook(() => useProvideGame())
 
       await act(async () => {
-         expect(await result.current.init(initGame.numbersQuestions, initGame.region)).toBe(true)
+         expect(await result.current.init(initGame.numbersQuestions, (initGame.region as keyof Regions))).toBe(true)
       })
 
       expect(fetch).toHaveBeenCalledTimes(1)
@@ -35,7 +37,7 @@ describe('Hook use game', () => {
       const { result } = renderHook(() => useProvideGame())
 
       await act(async () => {
-         expect(await result.current.init(initGame.numbersQuestions, initGame.region)).toBe(false)
+         expect(await result.current.init(initGame.numbersQuestions, (initGame.region as keyof Regions))).toBe(false)
       })
 
       expect(result.current.questions.length).toBe(0)

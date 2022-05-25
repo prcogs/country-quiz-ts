@@ -4,13 +4,14 @@ import { useGame } from 'utils/hooks/use-game'
 
 import { S } from 'components/games/games.styled'
 
-const type = {
+
+const type: Type = {
    CAPITAL: 1,
    FLAG: 2,
 }
 
 const random = () => Math.floor(Math.random() * 4)
-const LETTERS = ['A', 'B', 'C', 'D']
+const LETTERS: Letters = ['A', 'B', 'C', 'D']
 
 
 const Game = ({ data, isPlaying, handleAnswer, wichType }: Game) => {

@@ -6,15 +6,17 @@ import { useRoutes } from 'utils/hooks/use-routes'
 import { S } from './home.styled'
 
 
-function getKeyByValue(object: Regions, value: string) {
-   return Object.keys(object).find(key => object[key] === value);
-}
-
-const regions: Regions = {
+export const regions: Regions = {
    africa: 'Africa',
    americas: 'Americas',
    asia: 'Asia',
    europe: 'Europe',
+}
+
+
+function getKeyByValue
+   <T extends { [key: string]: string }, U extends ValueOf<T>>(object: T, value: U): keyof T | undefined {
+   return Object.keys(object).find(key => object[key] === value);
 }
 
 export const Home = () => {
@@ -30,8 +32,9 @@ export const Home = () => {
    const handlePlay = async () => {
       setIsLoading(true)
 
-      const nbr = Number(nbRef?.current?.value) >= 0 && Number(nbRef?.current?.value) <= 10 ? Number(nbRef?.current?.value) : 5
-      const region = regionRef?.current?.value || 'europe'
+      const inputRefNb = Number(nbRef?.current?.value)
+      const nbr = inputRefNb >= 0 && inputRefNb <= 10 ? inputRefNb : 5
+      const region = (regionRef?.current?.value as ValueOf<typeof regions>) || 'Europe'
       const go = await init(nbr, getKeyByValue(regions, region) || 'europe')
 
       setIsLoading(false)
