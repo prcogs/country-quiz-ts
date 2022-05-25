@@ -1,4 +1,12 @@
+/* eslint-disable no-unused-vars */
 
 type Regions = {
-   [key: string]: string
+   africa: 'Africa',
+   americas: 'Americas',
+   asia: 'Asia',
+   europe: 'Europe',
 }
+
+type ValueOf<T> = T[keyof T];
+
+type Keyof<T> = keyof T

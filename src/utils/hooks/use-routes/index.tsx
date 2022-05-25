@@ -7,19 +7,11 @@ type PropsRoutesProvider = {
    children: ReactNode
 }
 
-type Route = {
-   route: number,
-   changeRoute: () => void
-}
-
-export const routesContext = createContext<Route>({
-   route: routes.HOME,
-   changeRoute: () => {},
-});
+export const routesContext = createContext<Route | Record<string, never>>({});
 
 export function useProvideRoutes() {
    const { HOME, GAME, RESULT } = routes
-   const [route, setRoute] = useState(HOME)
+   const [route, setRoute] = useState<typeof HOME | typeof GAME | typeof RESULT>(HOME)
 
    const changeRoute = () => {
       switch (route) {

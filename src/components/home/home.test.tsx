@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 
 import { useGame } from 'utils/hooks/use-game'
+
 import { Home } from 'components/home'
 
 
@@ -8,8 +9,14 @@ jest.mock('utils/hooks/use-game', () => ({
    useGame: jest.fn(),
 }))
 
+jest.mock('utils/hooks/use-routes', () => ({
+   useRoutes: jest.fn(() => ({
+      changeRoute: jest.fn(),
+   })),
+}))
+
 const fct = (boolean: boolean) => () => ({
-   init: jest.fn((a: number, b: string | undefined) => Promise.resolve(boolean)),
+   init: jest.fn(() => Promise.resolve(boolean)),
 })
 
 describe('home', () => {

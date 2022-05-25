@@ -1,12 +1,12 @@
 
 
-export const reqfetch = async (request: string | Request): Promise<{ data?: any[] | undefined, error?: string | unknown}> => {
+export const reqfetch = async (request: string | Request) => {
    try {
       const response = await fetch(request);
-      const data: any[] = await response.json();
+      const data = await response.json();
 
       return { data };
-   } catch (error: unknown) {
+   } catch (error) {
       console.log('fetch error', error)
       return { error }
    }

@@ -1,31 +1,15 @@
-import { createContext, useContext, ReactNode, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 import { useRoutes } from 'utils/hooks/use-routes';
 import { getCountries } from 'utils/api/request/getCountries';
+import { createQuestions } from 'utils/hooks/use-game/helpers/createQuestions';
 
-type Countries = {
-   capital: string[]
-   flags: {
-      svg?: string,
-      png?: string
-   }
-   name: {
-      common: string
-   }
-}
+import { regions } from 'components/home';
 
-type CountriesParsed = {
-   capital: string
-   flags: string | undefined
-   name: string
-}
-
-type PropsGameProvider = {
-   children: ReactNode
-}
 
 type GameContext= {
-   init: (numberQuestion: number, region: string) => Promise<boolean | undefined>
+   // eslint-disable-next-line no-unused-vars
+   init: (numberQuestion: number, region: Keyof<typeof regions>) => Promise<boolean>
    questions: CountriesParsed[][]
    dataGame: {
       numberQuestions: number
@@ -38,62 +22,21 @@ type GameContext= {
 }
 
 
-const gameContext = createContext<GameContext>({
-   init: async (numberQuestion, region) => false,
-   questions: [],
-   dataGame: {
-      numberQuestions: 0,
-      numberGoodResp: 0,
-      actualQuestion: 0,
-   },
-   nextQuestion: () => {},
-   oneMoreGoodAnswer: () => {},
-   retryGame: () => {},
-});
-
-export const createQuestions = (countries: CountriesParsed[], numberQuestions: number) => {
-   const nbrCountries = numberQuestions * 4
-   const randomNumbers: number[] = []
-
-   for (let i = 0; i < nbrCountries; i += 1) {
-      let condition = true
-      while (condition) {
-         const random = Math.floor(Math.random() * countries.length)
-         if (randomNumbers.every(nbr => nbr !== random)) {
-            randomNumbers.push(random)
-            condition = false
-         }
-      }
-   }
-
-   let allQuestions: CountriesParsed[][] = []
-   for (let i = 0; i < randomNumbers.length; i += 4) {
-      const singleQuestion = [
-         countries[randomNumbers[i]],
-         countries[randomNumbers[i + 1]],
-         countries[randomNumbers[i + 2]],
-         countries[randomNumbers[i + 3]],
-      ]
-      allQuestions = [...allQuestions, singleQuestion]
-   }
-
-
-   return allQuestions
+const DATA_GAME_INIT = {
+   numberQuestions: 0,
+   numberGoodResp: 0,
+   actualQuestion: 0,
 }
 
+const gameContext = createContext<GameContext | Record<string, never>>({});
 
 export function useProvideGame() {
    const { changeRoute } = useRoutes()
    const [questions, setQuestions] = useState<CountriesParsed[][]>([])
-   const [dataGame, setDataGame] = useState({
-      numberQuestions: 0,
-      numberGoodResp: 0,
-      actualQuestion: 0,
-   })
+   const [dataGame, setDataGame] = useState(DATA_GAME_INIT)
 
-   const init = async (numberQuestions: number, region: string) => {
+   const init = async (numberQuestions: number, region: Keyof<typeof regions>) => {
       const { data, error } = await getCountries(region)
-
 
       if (data) {
          const parsedData: CountriesParsed[] = data
@@ -120,15 +63,10 @@ export function useProvideGame() {
       else setDataGame({ ...dataGame, actualQuestion: dataGame.actualQuestion + 1 })
    }
 
-   const oneMoreGoodAnswer = () => setDataGame({ ...dataGame, numberGoodResp: dataGame.numberGoodResp + 1 })
+   const oneMoreGoodAnswer = () => setDataGame(prevState => ({ ...dataGame, numberGoodResp: prevState.numberGoodResp + 1 }))
 
    const retryGame = () => {
-      setDataGame({
-         numberQuestions: 0,
-         numberGoodResp: 0,
-         actualQuestion: 0,
-      })
-
+      setDataGame(DATA_GAME_INIT)
       changeRoute()
    }
 
