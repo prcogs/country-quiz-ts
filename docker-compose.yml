@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  precogs-dev:
+  country-quiz:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: precogs-dev
+    container_name: country-quiz
     expose:
       - 80
     networks:
