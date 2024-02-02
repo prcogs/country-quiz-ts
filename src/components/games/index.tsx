@@ -69,8 +69,8 @@ const Game = ({ data, isPlaying, handleAnswer, wichType }: Game) => {
                         && (
                            <S.SpanImage>
                               {name === goodAnswer.name
-                                 ? <img src="/country-quiz-ts/icons/check-solid.svg" alt="Icon check" />
-                                 : <img src="/country-quiz-ts/icons/xmark-solid.svg" alt="Icon cross" />}
+                                 ? <img src="icons/check-solid.svg" alt="Icon check" />
+                                 : <img src="icons/xmark-solid.svg" alt="Icon cross" />}
                            </S.SpanImage>
                         )}
                   </button>
