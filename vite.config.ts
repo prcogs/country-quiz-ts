@@ -28,6 +28,15 @@ export default defineConfig(({ command, mode }) => {
          eslint(),
          tsconfigPaths(),
       ],
-      base: '/country-quiz-ts/',
+      server: {
+         host: '0.0.0.0',
+         port: 3000,
+         hmr: {
+            port: 3000,
+            clientPort: 3000,
+            host: 'localhost',
+         },
+      },
+      // base: '/country-quiz-ts/',
    }
 })
