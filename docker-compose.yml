@@ -12,7 +12,7 @@ services:
       - nginx-proxy
     environment:
       - VIRTUAL_HOST=country-quiz.florianfort-dev.fr
-      - VIRTUAL_PORT=3000
+      - VIRTUAL_PORT=80
 
 networks:
   nginx-proxy:
